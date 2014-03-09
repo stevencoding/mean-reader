@@ -28,6 +28,7 @@
     "gulp-less": "~1.2.2",
     "gulp-minify-css": "~0.3.0",
     "gulp-concat": "~2.1.7",
-    "mongoose": "~3.8.8"
+    "mongoose": "~3.8.8",
+    "gulp-util": "~2.2.14"
   }
 }
