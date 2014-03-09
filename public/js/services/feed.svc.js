@@ -1,0 +1,31 @@
+angular.module('rssApp').factory('FeedService', [
+  '$http',
+
+  function($http) {
+    return {
+      fetch: function(url) {
+        var promise = $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&callback=JSON_CALLBACK&q=' + encodeURIComponent(url));
+
+        return promise.then(function(res) {
+          return res.data.responseData.feed;
+        });
+      },
+
+      all: function() {
+        var promise = $http.get('/api/feeds');
+
+        return promise.then(function(res) {
+          return res.data;
+        });
+      },
+
+      create: function(params) {
+        var promise = $http.post('/api/feeds', angular.toJson(params));
+
+        return promise.then(function(res) {
+          return res.data;
+        });
+      }
+    };
+  }
+]);
