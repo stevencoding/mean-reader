@@ -8,4 +8,4 @@ ul
 
 ul
   li(ng-repeat='entry in entries')
-    a(href='entry.link' target='_blank') {{ entry.title }}
+    a(href='{{ entry.link }}' target='_blank') {{ entry.title }}
