@@ -1,8 +1,11 @@
 form(ng-submit='create()')
-  label Name
-  input(ng-model='newFeed.name')
-  label URL
   input(ng-model='newFeed.url')
-  label Description
-  input(ng-model='newFeed.description')
   button Create
+
+ul
+  li(ng-repeat='feed in feeds')
+    a(href='#' ng-click='fetch(feed.url)') {{ feed.name }}
+
+ul
+  li(ng-repeat='entry in entries')
+    a(href='entry.link' target='_blank') {{ entry.title }}

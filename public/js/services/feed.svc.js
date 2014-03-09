@@ -19,11 +19,19 @@ angular.module('rssApp').factory('FeedService', [
         });
       },
 
-      create: function(params) {
-        var promise = $http.post('/api/feeds', angular.toJson(params));
+      create: function(url) {
+        return this.fetch(url).then(function(feed) {
+          var params = {
+            name: feed.title,
+            url: feed.feedUrl,
+            description: feed.description
+          };
 
-        return promise.then(function(res) {
-          return res.data;
+          var promise = $http.post('/api/feeds', angular.toJson(params));
+
+          return promise.then(function(res) {
+            return res.data;
+          });
         });
       }
     };
