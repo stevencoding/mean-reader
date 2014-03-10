@@ -1,11 +1,12 @@
-
-
 .container-fluid
   .row
     .feeds
       ul.feed-list
-        li(ng-repeat='feed in feeds')
-          a(href='#' ng-click='fetch(feed.url)') {{ feed.name }}
+        li.feed-list-item(ng-repeat='feed in feeds')
+          a(href='#' ng-click='fetch(feed.url)') 
+            img.favicon(src='https://plus.google.com/_/favicon?domain={{ feed.link }}')
+            {{ feed.name }}
+
       form(ng-submit='create()')
         input(ng-model='newFeed.url')
         button Add
