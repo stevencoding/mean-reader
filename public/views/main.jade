@@ -1,11 +1,23 @@
-form(ng-submit='create()')
-  input(ng-model='newFeed.url')
-  button Create
 
-ul
-  li(ng-repeat='feed in feeds')
-    a(href='#' ng-click='fetch(feed.url)') {{ feed.name }}
 
-ul
-  li(ng-repeat='entry in entries')
-    a(href='{{ entry.link }}' target='_blank') {{ entry.title }}
+.container-fluid
+  .row
+    .feeds
+      ul.feed-list
+        li(ng-repeat='feed in feeds')
+          a(href='#' ng-click='fetch(feed.url)') {{ feed.name }}
+      form(ng-submit='create()')
+        input(ng-model='newFeed.url')
+        button Add
+
+    .entries
+      ul.entry-list
+        li.entry-list-item(ng-repeat='entry in entries')
+          a.entry-list-content(href='#' ng-click='select(entry)') 
+            h5 {{ entry.title }}
+            p.entry-list-snippet {{ entry.contentSnippet }}
+
+    .article
+      .article-content
+        h2 {{ article.title }}
+        span(ng-bind-html='article.content')

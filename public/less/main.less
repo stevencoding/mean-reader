@@ -1,0 +1,84 @@
+@import '/public/bower_components/bootstrap/less/bootstrap.less';
+
+@font-color: #333;
+@blue-dark: #31333d;
+@gray-light: #f2f2f2;
+@font-size-sm: 13px;
+@padding: 15px;
+
+body, html {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.feeds, .entries, .article {
+  height: 100%;
+  max-height: 100%;
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.feeds {
+  background: @gray-light;
+  left: 0;
+  padding: 15px;
+  width: 20%;
+}
+
+.entries {
+  left: 20%;
+  padding: 0;
+  width: 25%;
+}
+
+.article {
+  left: 45%;
+  padding: 0 @padding;
+  width: 55%;
+}
+
+.article img {
+  max-width: 100%;
+}
+
+.feeds a {
+  color: @font-color;
+  font-size: @font-size-sm;
+}
+
+.feed-list,
+.entry-list {
+  .list-unstyled();
+}
+
+.entry-list-item {
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding: 5px @padding;
+}
+
+.entry-list-content,
+.entry-list-content:hover {
+  color: @font-color;
+}
+
+.entry-list-snippet {
+  color: #999;
+  font-size: @font-size-sm;
+  line-height: 1.4;
+}

@@ -1,8 +1,9 @@
 angular.module('rssApp').controller('MainCtrl', [
+  '$sce',
   '$scope',
   'FeedService',
 
-  function($scope, FeedService) {
+  function($sce, $scope, FeedService) {
     $scope.entries = [];
     $scope.newFeed = {};
 
@@ -20,6 +21,11 @@ angular.module('rssApp').controller('MainCtrl', [
       FeedService.fetch(url).then(function(feed) {
         $scope.entries = feed.entries;
       });
+    };
+
+    $scope.select = function(entry) {
+      $scope.article = entry;
+      $scope.article.content = $sce.trustAsHtml($scope.article.content);
     };
   }
 ]);

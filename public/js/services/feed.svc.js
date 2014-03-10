@@ -24,7 +24,8 @@ angular.module('rssApp').factory('FeedService', [
           var params = {
             name: feed.title,
             url: feed.feedUrl,
-            description: feed.description
+            description: feed.description,
+            link: feed.link
           };
 
           var promise = $http.post('/api/feeds', angular.toJson(params));

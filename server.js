@@ -19,6 +19,7 @@ db.on('error', console.error);
 var Feed = mongoose.model('Feed', {
   name: String,
   url: String,
+  link: String,
   description: String,
   createdAt: { type: Date, default: Date.now }
 });
@@ -29,7 +30,8 @@ app.post('/api/feeds', function(req, res) {
   var feed = new Feed({
     name: req.body.name,
     url: req.body.url,
-    description: req.body.description
+    description: req.body.description,
+    link: req.body.link
   });
 
   feed.save(function(err, feed) {
