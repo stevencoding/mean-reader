@@ -27,5 +27,11 @@ angular.module('rssApp').controller('MainCtrl', [
       $scope.article = entry;
       $scope.article.content = $sce.trustAsHtml($scope.article.content);
     };
+
+    $scope.fetchContent = function(url) {
+      FeedService.article(url).then(function(data) {
+        $scope.article.content = $sce.trustAsHtml(data.data);
+      });
+    }
   }
 ]);

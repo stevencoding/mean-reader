@@ -34,6 +34,14 @@ angular.module('rssApp').factory('FeedService', [
             return res.data;
           });
         });
+      },
+
+      article: function(url) {
+        var promise = $http.get('/api/articles?url=' + url);
+
+        return promise.then(function(res) {
+          return res.data;
+        });
       }
     };
   }

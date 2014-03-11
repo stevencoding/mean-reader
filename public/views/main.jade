@@ -20,5 +20,7 @@
 
     .article
       .article-content
+        a(href='#', ng-click='fetchContent(article.link)') Get content
+        span(ng-bind-html='article.fullContent')
         h2 {{ article.title }}
         span(ng-bind-html='article.content')

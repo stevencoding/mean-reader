@@ -1,5 +1,6 @@
 var express   = require('express'),
     app       = express(),
+    readability = require('node-readability'),
     mongoose  = require('mongoose'),
     db        = mongoose.connection;
 
@@ -13,6 +14,8 @@ app.configure('development', function() {
   app.use(express.static(__dirname + '/public'));
   app.use(app.router);
 });
+
+
 
 db.on('error', console.error);
 
@@ -44,6 +47,12 @@ app.get('/api/feeds', function(req, res) {
   Feed.find(function(err, feeds) {
     if (err) console.error(err);
     return res.json(feeds);
+  });
+});
+
+app.get('/api/articles', function(req, res) {
+  return readability(req.query.url, function(err, article, meta) {
+    return res.json({ data: article.content });
   });
 });
 
