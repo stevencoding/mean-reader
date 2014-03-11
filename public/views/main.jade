@@ -19,8 +19,9 @@
             p.entry-list-snippet {{ entry.contentSnippet }}
 
     .article
+      ul.article-options(ng-show='article')
+        li: a(href='#', ng-click='fetchContent(article.link)') Full Article
       .article-content
-        a(href='#', ng-click='fetchContent(article.link)') Get content
         span(ng-bind-html='article.fullContent')
         h2 {{ article.title }}
         span(ng-bind-html='article.content')

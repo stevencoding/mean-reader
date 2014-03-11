@@ -25,6 +25,11 @@ a:hover {
   text-decoration: none;
 }
 
+.list-inline {
+  li:first-child { padding-left: 0; }
+  li:last-child { padding-right: 0; }
+}
+
 .feeds, .entries, .article {
   height: 100%;
   max-height: 100%;
@@ -50,6 +55,24 @@ a:hover {
   left: 45%;
   padding: 0 @padding;
   width: 55%;
+}
+
+.article-options {
+  .list-inline();
+
+  background: @gray-light;
+  margin: 0 -15px;
+}
+
+.article-options a {
+  color: #999;
+  display: inline-block;
+  font-size: 13px;
+  padding: 10px @padding;
+
+  &:hover {
+    color: @font-color;
+  }
 }
 
 .article img {
