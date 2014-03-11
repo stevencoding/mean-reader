@@ -2,12 +2,14 @@ doctype html
 html
   head
     title Angular RSS Reader
+    link(rel='stylesheet', href='/bower_components/ngprogress-lite/ngprogress-lite.css')
     link(rel='stylesheet', href='/css/main.css')
   body(ng-app='rssApp')
     div(ng-view)
 
     script(src='/bower_components/angular/angular.js')
     script(src='/bower_components/angular-route/angular-route.js')
+    script(src='/bower_components/ngprogress-lite/ngprogress-lite.js')
     script(src='/js/app.js')
     script(src='/js/controllers/main.ctrl.js')
     script(src='/js/services/feed.svc.js')

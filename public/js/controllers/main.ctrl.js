@@ -1,9 +1,10 @@
 angular.module('rssApp').controller('MainCtrl', [
   '$sce',
   '$scope',
+  'ngProgressLite',
   'FeedService',
 
-  function($sce, $scope, FeedService) {
+  function($sce, $scope, ngProgressLite, FeedService) {
     $scope.entries = [];
     $scope.newFeed = {};
 
@@ -29,8 +30,10 @@ angular.module('rssApp').controller('MainCtrl', [
     };
 
     $scope.fetchContent = function(url) {
+      ngProgressLite.start();
       FeedService.article(url).then(function(data) {
         $scope.article.content = $sce.trustAsHtml(data.data);
+        ngProgressLite.done();
       });
     }
   }

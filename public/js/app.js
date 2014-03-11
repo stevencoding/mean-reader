@@ -1,4 +1,4 @@
-angular.module('rssApp', ['ngRoute']);
+angular.module('rssApp', ['ngRoute', 'ngProgressLite']);
 
 angular.module('rssApp').config([
   '$routeProvider',
