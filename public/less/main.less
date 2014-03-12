@@ -1,6 +1,7 @@
 @import '/public/bower_components/bootstrap/less/bootstrap.less';
 
 @font-color: #333;
+@blue-light: #62a9eb;
 @blue-dark: #31333d;
 @gray-light: #f2f2f2;
 @font-size-sm: 13px;
@@ -28,6 +29,18 @@ a:hover {
 .list-inline {
   li:first-child { padding-left: 0; }
   li:last-child { padding-right: 0; }
+}
+
+.masthead {
+  border-bottom: 1px solid #eee;
+  padding: 10px @padding;
+}
+
+.brand {
+  color: #999;
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
 }
 
 .feeds, .entries, .article {
@@ -93,6 +106,13 @@ a:hover {
   border-bottom: 1px solid #eee;
   border-right: 1px solid #eee;
   padding: 5px @padding;
+
+  &.active {
+    background: @blue-light;
+
+    .entry-list-title { color: #fff; }
+    .entry-list-snippet { color: rgba(255,255,255,0.7); }
+  }
 }
 
 .entry-list-content,

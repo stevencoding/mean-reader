@@ -19,14 +19,11 @@ angular.module('rssApp').controller('MainCtrl', [
     };
 
     $scope.fetch = function(url) {
+      ngProgressLite.start();
       FeedService.fetch(url).then(function(feed) {
         $scope.entries = feed.entries;
+        ngProgressLite.done();
       });
-    };
-
-    $scope.select = function(entry) {
-      $scope.article = entry;
-      $scope.article.content = $sce.trustAsHtml($scope.article.content);
     };
 
     $scope.fetchContent = function(url) {

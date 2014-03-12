@@ -1,0 +1,5 @@
+ul.entry-list
+  li.entry-list-item(ng-repeat='entry in entries', ng-class='{ active: entry.isActive }')
+    a.entry-list-content(href='#' ng-click='select(entry)') 
+      h5.entry-list-title {{ entry.title }}
+      p.entry-list-snippet {{ entry.contentSnippet }}

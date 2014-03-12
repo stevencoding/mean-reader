@@ -12,11 +12,6 @@
         button Add
 
     .entries
-      ul.entry-list
-        li.entry-list-item(ng-repeat='entry in entries')
-          a.entry-list-content(href='#' ng-click='select(entry)') 
-            h5 {{ entry.title }}
-            p.entry-list-snippet {{ entry.contentSnippet }}
 
     .article
       ul.article-options(ng-show='article')
