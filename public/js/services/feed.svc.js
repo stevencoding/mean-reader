@@ -4,7 +4,7 @@ angular.module('rssApp').factory('FeedService', [
   function($http) {
     return {
       fetch: function(url) {
-        var promise = $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&callback=JSON_CALLBACK&q=' + encodeURIComponent(url));
+        var promise = $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&callback=JSON_CALLBACK&scoring=h&q=' + encodeURIComponent(url));
 
         return promise.then(function(res) {
           return res.data.responseData.feed;
